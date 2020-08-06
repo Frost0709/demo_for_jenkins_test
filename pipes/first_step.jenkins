@@ -18,13 +18,22 @@ pipeline {
                 sh 'chmod +x ./gradlew'
             }
         }
-        stage("Gradle bootRun") {
+        stage("Test project") {
             
             steps {
                 sh 'echo ======================================================'
-                sh 'echo \'BootRun\''
+                sh 'echo \'TEST\''
                 sh 'echo ======================================================'
-                sh './gradlew clean bootRun'
+                sh './gradlew clean test'
+            }
+        }
+        stage("Build project") {
+            
+            steps {
+                sh 'echo ======================================================'
+                sh 'echo \'BUILD\''
+                sh 'echo ======================================================'
+                sh './gradlew clean build'
             }
         }
     }       
