@@ -19,7 +19,7 @@ pipeline {
     stages {
             stage("First step") {
                 steps {
-                    /gradlew test
+                    sh gradlew test
                 }
             }
         }
