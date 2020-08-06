@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh 'who'
                 sh 'chmod 777 ./gradlew' 
-                sh './gradlew clean build'
+                sh './gradlew clean bootRun'
             }
         }
     }       
