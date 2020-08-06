@@ -10,16 +10,20 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("Start jenkins") {
+        stage("Make gradlew executable") {
             steps {
-                sh 'echo \'Start jenkins\''
+                sh 'echo ======================================================'
+                sh 'echo \'Make \'gradlew\' executable\''
+                sh 'echo ======================================================'
+                sh 'chmod +x ./gradlew'
             }
         }
-        stage("Gradle Build") {
+        stage("Gradle bootRun") {
             
             steps {
-                sh 'who'
-                sh 'chmod 777 ./gradlew' 
+                sh 'echo ======================================================'
+                sh 'echo \'BootRun\''
+                sh 'echo ======================================================'
                 sh './gradlew clean bootRun'
             }
         }
