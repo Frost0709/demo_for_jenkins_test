@@ -6,13 +6,20 @@ pipeline {
         label "master"
     }
         options {
-            buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+            buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
             timestamps()
         }
         stages {
+            stage("Start jenkins") {
+                steps {
+                    sh 'echo \'Start jenkins\''
+                }
+            }
+        }
+    stages {
             stage("First step") {
                 steps {
-                    sh 'echo \'firs step\''
+                    /gradlew test
                 }
             }
         }
