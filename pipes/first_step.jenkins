@@ -19,7 +19,7 @@ pipeline {
             
             steps {
                 sh 'who'
-                sh 'sudo chmod 777 ./gradlew' 
+                sh 'chmod 777 ./gradlew' 
                 sh './gradlew clean build'
             }
         }
