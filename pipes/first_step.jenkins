@@ -5,23 +5,22 @@ pipeline {
     agent {
         label "master"
     }
-        options {
-            buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
-            timestamps()
-        }
-        stages {
-            stage("Start jenkins") {
-                steps {
-                    sh 'echo \'Start jenkins\''
-                }
-            }
-        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+        timestamps()
+    }
     stages {
-            stage("First step") {
-                steps {
-                    sh gradlew test
-                }
+        stage("Start jenkins") {
+            steps {
+                sh 'echo \'Start jenkins\''
             }
         }
-    
+        stage('Gradle Build') {
+            if (isUnix()) {
+                sh './gradlew clean build'
+            } else {
+            bat 'gradlew.bat clean build'
+            }
+        }
+    }       
 }
