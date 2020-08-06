@@ -16,10 +16,9 @@ pipeline {
             }
         }
         stage("Gradle Build") {
+     
             steps {
-                sh 'sudo chmod +x ./gradlew'    
-            }
-            steps {
+                sh 'sudo chmod +x ./gradlew' 
                 sh './gradlew clean build'
             }
         }
