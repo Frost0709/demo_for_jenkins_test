@@ -8,6 +8,6 @@ public class MainController {
 
     @GetMapping("/")
     public String getPage() {
-        return "version 2";
+        return "version 3";
     }
 }
